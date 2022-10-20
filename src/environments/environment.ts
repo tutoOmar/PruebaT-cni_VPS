@@ -1,16 +1,16 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ApiUrl:'https://parallelum.com.br/fipe/api/v1',
+  ApiCurrenciesUrl:'https://api.apilayer.com/exchangerates_data/convert?',
+  ApiKey:'27ULda6MmtNfb6RtiOW3InEmOVnYr6Xz'
+
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+/**
+ * ApiUrl: Parte de la URL para manejar el servicio de vehiculos, es la parte inicial de la API
+ * ApiCurrenciesUrl: Parte inicial de la api para convertir divisias
+ * ApiKey: Llave para poder acceder a la API Currencies y convertir las monedas
  *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
+ * Api utilizada para convertir monedas APILAYER
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

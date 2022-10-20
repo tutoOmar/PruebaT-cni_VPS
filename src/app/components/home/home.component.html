@@ -1,0 +1,51 @@
+
+<div class="container">
+  <h1 class="title">Impuesto de tu vehiculo</h1>
+  <div class="container_selection">
+    <div class="tipo_vehiculos">
+      <label class="labels">Tipo de vehiculo</label>
+      <select [(ngModel)]="selectionType" (change)="catchDataType()" name="selection1" id="selection">
+        <option disabled selected>Selecciona el tipo de vehiculo</option>
+        <option value="/carros">Carros</option>
+        <option value="/motos">Motos</option>
+        <option value="/caminhoes">Camiones</option>
+      </select>
+    </div>
+    <div class="marcas">
+      <label class="labels">Marca</label>
+      <select  [(ngModel)]="selectionBrand" (change)="catchDataBrand()" name="selection2" id="selection">
+        <option disabled selected>Selecciona la marca de tu vehiculo</option>
+        <option value={{marca.codigo}} *ngFor="let marca of resBrand">{{marca.nome}}</option>
+      </select>
+    </div>
+
+    <div class="models">
+      <label class="labels">Modelo</label>
+      <select  [(ngModel)]="selectionModel" (change)="catchDataModels()" name="selection3" id="selection">
+        <option disabled selected>Selecciona el modelo del vehiculo</option>
+        <option value={{model.codigo}} *ngFor="let model of resModel">{{model.nome}}</option>
+      </select>
+    </div>
+
+    <div class="anio">
+      <label class="labels">Año</label>
+      <select  [(ngModel)]="selectionAnio" (change)="catchDataAnio()" name="selection4" id="selection">
+        <option disabled selected>Selecciona el año de tu vehiculo</option>
+        <option value={{anio.codigo}} *ngFor="let anio of resAnio">{{anio.nome}}</option>
+      </select>
+    </div>
+    <button class="btn" (click)="cleanAll()">Limpiar Busqueda</button>
+  </div>
+  <div class="info" *ngIf=dataShow>
+    <h2 class="title">Información del vehiculo seleccionado</h2>
+    <div class="infoTotal" *ngIf="{data: totalRes} as totalData">
+      <p> <strong>Marca: </strong> {{totalData.data.Marca}}</p>
+      <p> <strong>Modelo:</strong> {{totalData.data.Modelo}}</p>
+      <p> <strong>Año:</strong> {{totalData.data.AnoModelo}}</p>
+      <p> <strong>Combustible:</strong> {{totalData.data.Combustivel}}</p>
+      <p> <strong>Valor:</strong> {{totalData.data.Valor}}</p>
+      <p> <strong>Valor Pesos Colombianos:</strong> {{pesosVal | currency:'COP' }}</p>
+      <p> <strong>Impuesto {{showTax}}% :</strong> {{ taxValue |number}} COP</p>
+    </div>
+  </div>
+</div>
